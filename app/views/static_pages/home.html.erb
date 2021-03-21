@@ -19,17 +19,21 @@
   </div>
 <% else %>
   <div class="center jumbotron">
-    <h1>Welcome to the Sample App</h1>
+    <h1>Welcome to the Management Paper</h1>
 
     <h2>
-      This is the home page for the
-      <a href="https://railstutorial.jp/">Ruby on Rails Tutorial</a>
-      sample application.
+      大学院生による、研究管理アプリケーション
     </h2>
 
-    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+    <span>
+      <%= link_to "Log in now!", login_path, class: 'btn btn-lg btn-primary' %>
+    </span>
+    <span>
+      <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-success" %>    
+    </span>
   </div>
 
+  <!-- 後日、イメージタグを変更する -->
   <%= link_to image_tag("rails.svg", alt: "Rails logo", width: "200px"),
               "https://rubyonrails.org/" %>
 <% end %>
