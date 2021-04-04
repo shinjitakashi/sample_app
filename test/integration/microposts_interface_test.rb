@@ -18,8 +18,9 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     assert_select 'a[href=?]', '/?page=2'  # 正しいページネーションリンク
     # 有効な送信
     content = "This micropost really ties the room together"
+    title = "This default title"
     assert_difference 'Micropost.count', 1 do
-      post microposts_path, params: { micropost: { content: content } }
+      post microposts_path, params: { micropost: { content: content, title: title } }
     end
     assert_redirected_to root_url
     follow_redirect!

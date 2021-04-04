@@ -4,7 +4,7 @@ class MicropostTest < ActiveSupport::TestCase
 
   def setup
     @user = users(:michael)
-    @micropost = @user.microposts.build(content: "Lorem ipsum")
+    @micropost = @user.microposts.build(content: "Lorem ipsum", title: "Default title")
   end
 
   test "should be valid" do
@@ -30,4 +30,7 @@ class MicropostTest < ActiveSupport::TestCase
     assert_equal microposts(:most_recent), Micropost.first
   end
 
+  test "check microposts include title" do
+    assert @micropost.valid?
+  end
 end
