@@ -268,10 +268,15 @@ aside {
       padding: 5px 0;
     }
   }
+  .name {
+    font-size: x-large;
+    display: block;
+    padding: 5px;
+  }
   .title {
     display: block;
-    padding: 10px;
-    font-size: medium;
+    margin-left: 60px;
+    // font-size: medium;
   }
   .timestamp {
     color: $gray-light;

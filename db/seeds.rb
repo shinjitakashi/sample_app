@@ -33,7 +33,12 @@ users = User.order(:created_at).take(6)
 50.times do
   content = Faker::Lorem.sentence(word_count: 5)
   title = Faker::Lorem.sentence(word_count: 10)
-  users.each { |user| user.microposts.create!(content: content, title: title) }
+  newcontent = Faker::Lorem.sentence(word_count: 100)
+  mainresult = Faker::Lorem.sentence(word_count: 100)
+  problem = Faker::Lorem.sentence(word_count: 100)
+  condition = Faker::Lorem.sentence(word_count: 100)
+  
+  users.each { |user| user.microposts.create!(content: content, title: title, newcontent: newcontent, mainresult: mainresult, problem: problem, condition: condition) }
 end
 
 # 以下のリレーションシップを作成する

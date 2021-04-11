@@ -19,12 +19,16 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     # 有効な送信
     content = "This micropost really ties the room together"
     title = "This default title"
+    newcontent = 'aaaaaaaaaaaaaaaaaa'
+    mainresult = 'aaaaaaaaaaaaaaaaaa'
+    problem = 'aaaaaaaaaaaaaaaaaaaa'
+    condition = 'aaaaaaaaaaaaaaaaa'
     assert_difference 'Micropost.count', 1 do
-      post microposts_path, params: { micropost: { content: content, title: title } }
+      post microposts_path, params: { micropost: { content: content, title: title, newcontent: newcontent, mainresult: mainresult, problem: problem, condition: condition } }
     end
     assert_redirected_to root_url
     follow_redirect!
-    assert_match content, response.body
+    assert_match title, response.body
     # 投稿を削除する
     assert_select 'a', text: 'delete'
     first_micropost = @user.microposts.paginate(page: 1).first

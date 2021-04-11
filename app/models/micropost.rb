@@ -5,6 +5,10 @@ class Micropost < ApplicationRecord
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 140 }
   validates :title, presence: true, length: {maximum: 140}
+  validates :newcontent, presence: true, length: {maximum: 1000}
+  validates :mainresult, presence: true, length: {maximum: 1000}
+  validates :problem, presence: true, length: {maximum: 1000}
+  validates :condition, presence: true, length: {maximum: 1000}
   validates :image,   content_type: { in: %w[image/jpeg image/gif image/png],
                                       message: "must be a valid image format" },
                       size:         { less_than: 5.megabytes,
